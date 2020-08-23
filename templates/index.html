@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Feedback Form</h1>
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>Customer Name</h3>
+          <input type="text" name="customer" placeholder="Name of customer" />
+        </div>
+        <div class="form-group">
+          <h3>Did anybody assist you today?</h3>
+          <select name="employee">
+            <option value="">Select Employee</option>
+            <option value="Dealer 1">Employee 1</option>
+            <option value="Dealer 2">Employee 2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Please rate your experience</h3>
+          <input type="radio" name="rating" value="1" /> 1
+          <input type="radio" name="rating" value="2" /> 2
+          <input type="radio" name="rating" value="3" /> 3
+        </div>
+        <div class="form-group">
+          <h3>Comments about your experience</h3>
+          <textarea
+            name="comments"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Tell us about your experience"
+          ></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn" />
+      </form>
+    </div>
+  </body>
+</html>
