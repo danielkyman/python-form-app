@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from send_mail import send_mail
+from .env import production_url
 
 app = Flask(__name__)
 
@@ -11,7 +12,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:dkyman420@localhost/form_test'
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://dcdmycnfftcczr:640e7d16629b5d6e7283b557a3b495f82ad98fb4dabbc56c6d8c1107238618d0@ec2-52-86-116-94.compute-1.amazonaws.com:5432/drgnc5ed6vhf'
+    app.config['SQLALCHEMY_DATABASE_URI'] = production_url
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
